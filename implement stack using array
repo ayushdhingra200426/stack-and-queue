@@ -1,0 +1,56 @@
+// implement stack using array 
+#include<iostream>
+using namespace std;
+
+class Stack{
+  public:
+  int top;
+  int st[100];
+
+  Stack(){
+    top=-1;
+  }
+
+  void push(int x){
+    if(top>=99){
+      cout<<"stack overflow";
+      return;
+    }
+    top=top+1;
+    st[top]=x;
+  }
+
+  void pop(){
+    if(top==-1){
+      cout<<"stack underflow";
+      return;
+    }
+    top=top-1;
+  }
+
+  int gettop(){
+    if(top==-1) return -1;
+    return st[top];
+  }
+
+  int size(){
+    if(top==-1){
+
+    cout<<"stack is already empty";
+    return 0;
+    }
+    return top+1;
+  }
+  void display(){
+    for(int i=0;i<=top;i++){
+        cout<<st[i]<<endl;
+    }
+  }
+};
+int main(){
+  Stack s1;
+  s1.push(2);
+  s1.push(3);
+  // cout<<s1.size();
+  s1.display();
+}
