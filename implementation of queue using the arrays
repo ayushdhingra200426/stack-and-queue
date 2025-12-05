@@ -1,0 +1,67 @@
+// implementation of queue using the arrays 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Queue{
+  public:
+  int start;
+  int end;
+  int q[4];
+
+  Queue(){
+    start = -1;
+    end = -1;
+  }
+
+  void push(int x){
+    if(end == 3){
+      cout << "queue overflow" << endl;
+      return;
+    }
+    if(start == -1) start = 0;
+
+    end++;
+    q[end] = x;
+  }
+
+  void pop(){
+    if(start == -1 || start > end){
+      cout << "queue underflow" << endl;
+      return;
+    }
+    start++;
+  }
+
+  int size(){
+    if(start == -1 || start > end) return 0;
+    return (end - start + 1);
+  }
+
+  int top(){
+    if(start == -1 || start > end){
+      cout << "queue empty";
+      return -1;
+    }
+    return q[start];   // front element
+  }
+
+  void display(){
+    if(start == -1 || start > end){
+      cout << "queue empty" << endl;
+      return;
+    }
+    for(int i = start; i <= end; i++){
+      cout << q[i] << endl;
+    }
+  }
+};
+
+int main(){
+  Queue q1;
+  q1.push(3);
+  q1.push(4);
+
+  q1.display();
+}
