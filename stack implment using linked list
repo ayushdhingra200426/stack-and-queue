@@ -1,0 +1,43 @@
+// linked list is used for dynamic memory allocation 
+while the array is used for fixed size and array has constant space 
+
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+  public:
+  int data;
+  Node* next;
+
+  Node(int val){
+    data=val;
+    next=NULL;
+  }
+};
+
+class Stack{
+  public:
+  Node* head;
+  Stack(){
+    head=null;
+  }
+  void push(int x){
+    Node* newnode = new Node(x);
+    newnode->next=head;
+    head=newnode;
+  }
+
+  void pop(){
+    if(head==NULL){
+      cout<<"stack overflow"<<endl;
+      return;
+    }
+    Node* temp=head;
+    head=head->next;
+    delete temp;
+  }
+  int top(){
+    if(head==NULL) return 0;
+    return head->data;
+  }
+
+}
